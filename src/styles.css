@@ -16,6 +16,6 @@ span.icon-star {
     min-width: 100%;
 }
 
-.w-8 {
-    width: 8%;
+.cp {
+    cursor: pointer;
 }

@@ -5,7 +5,7 @@
         </div>
         <div class="col-md-10">
             <div class="card-body">
-                <h5 class="card-title ms-0">{{ job.title }}</h5>
+                <h5 class="card-title ms-0 cp" routerLink="/job/{{job.id}}">{{ job.title }}</h5>
                 <div class="card-text">
                     <span class="me-4">Company: {{ job.companyName}}</span>
                     <span>Reference: {{ job.reference }}</span>
