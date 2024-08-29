@@ -38,8 +38,6 @@ export class JobsComponent {
       this.favoriteJobs = this.favoriteJobs.filter(item => item.id !== job.id);
     else
       this.favoriteJobs.push(job);
-
-    console.log(this.favoriteJobs);
   }
 
   existsInFavorites(job: Job): boolean {
