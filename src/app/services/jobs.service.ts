@@ -17,4 +17,9 @@ export class JobsService {
   getJobById(id: number): Observable<Job> {
     return this.http.get<Job>(`${this.apiUrl}/${id}`);
   }
+
+  getFavoriteJobsFromLocalStorage(): Job[] {
+    const favJobs = localStorage.getItem('favoriteJobs');
+    return favJobs ? JSON.parse(favJobs) : [];
+  }
 }

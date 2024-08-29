@@ -1,1 +1,23 @@
-<p>favorites works!</p>
+<div *ngIf="favoriteJobs && favoriteJobs.length > 0; else notFound"> 
+    <div class="card mb-3 min-w-100" *ngFor="let job of favoriteJobs">
+        <div class="row g-0">
+            <div class="col-md-1">
+                <img src="{{job.companyLogo}}" class="img-thumbnail m-2 float-start border-0" alt="{{job.companyName}}">
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <h5 class="card-title ms-0 cp" routerLink="/job/{{job.id}}">{{ job.title }}</h5>
+                    <div class="card-text">
+                        <span class="me-4">Company: {{ job.companyName}}</span>
+                        <span>Reference: {{ job.reference }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #notFound>
+    <div class="alert alert-warning" role="alert">
+        No favorite jobs!
+    </div>
+</ng-template>
