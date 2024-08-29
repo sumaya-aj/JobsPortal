@@ -22,11 +22,6 @@ export class JobsComponent {
     this.favoriteJobs = this.jobsService.getFavoriteJobsFromLocalStorage();
   }
 
-  ngOnDestroy () {
-    // store finalized favorite jobs in local storage right before rerouting
-    localStorage.setItem('favoriteJobs', JSON.stringify(this.favoriteJobs));
-  }
-
   getJobs(): void {
     this.jobsService.getJobs().subscribe((jobs: Job[]) => {
       this.jobs = jobs;
@@ -38,6 +33,8 @@ export class JobsComponent {
       this.favoriteJobs = this.favoriteJobs.filter(item => item.id !== job.id);
     else
       this.favoriteJobs.push(job);
+
+    localStorage.setItem('favoriteJobs', JSON.stringify(this.favoriteJobs));
   }
 
   existsInFavorites(job: Job): boolean {
