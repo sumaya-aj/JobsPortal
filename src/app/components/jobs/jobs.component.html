@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="col-md-1 d-flex justify-content-center align-items-center">
-            <span id="`star-{{job.id}}`" class="icon-star float-end fs-3"></span>
+            <span id="`star-{{job.id}}`" class="icon-star float-end fs-3 cp" (click)="addRemoveJobFromFavorites(job)" [class.active]="existsInFavorites(job)"></span>
         </div>
     </div>
 </div>

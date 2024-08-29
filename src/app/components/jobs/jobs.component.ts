@@ -13,7 +13,8 @@ import { RouterModule } from '@angular/router';
 })
 export class JobsComponent {
   jobs!: Job[];
-  
+  favoriteJobs: Job[] = [];
+
   constructor(private jobsService: JobsService) { }
 
   ngOnInit(): void {
@@ -24,6 +25,19 @@ export class JobsComponent {
     this.jobsService.getJobs().subscribe((jobs: Job[]) => {
       this.jobs = jobs;
     });
+  }
+  
+  addRemoveJobFromFavorites(job: Job) {
+    if (this.existsInFavorites(job))
+      this.favoriteJobs = this.favoriteJobs.filter(item => item != job);
+    else
+      this.favoriteJobs.push(job);
+
+      console.log(this.favoriteJobs)
+  }
+
+  existsInFavorites(job: Job): boolean {
+    return this.favoriteJobs.some(item => item.id === job.id);
   }
 
 }
