@@ -1,1 +1,36 @@
-<div *ngIf="job">{{ job.description }}</div>
+    
+<div class="container" *ngIf="job">
+    <div class="card min-w-100 border-0">
+        <div class="d-inline-flex">
+            <a class="btn btn-secondary cp" role="button" data-bs-toggle="button" routerLink="/jobs">Back</a>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <img src="{{job.companyLogo}}" class="img-fluid border-0">
+          </div>
+          <div class="col-md-10">
+            <div class="card-body">
+              <h5 class="card-title">{{job.companyName}} - {{job.title}}</h5>
+            </div>
+            <span class="badge text-bg-dark ms-4 me-2" *ngFor="let type of job.types">{{type}}</span>
+            <span class="badge text-bg-dark" *ngFor="let industry of job.industries">{{industry}}</span>
+          </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">Publish Date: </div>
+            <div class="col-md-10">{{job.publishDate}}</div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">Location: </div>
+            <div class="col-md-10">{{job.location}}</div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">Reference: </div>
+            <div class="col-md-10">{{job.reference}}</div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-2 fw-bold">Description: </div>
+            <div class="col-md-10 g-0" [innerHTML]="job.description"></div>
+        </div>
+    </div>
+</div>
