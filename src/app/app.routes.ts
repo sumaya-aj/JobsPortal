@@ -6,7 +6,7 @@ import { JobDetailsComponent } from './components/job-details/job-details.compon
 export const routes: Routes = [
     { path: 'jobs', component: JobsComponent },
     { path: 'job/:id', component: JobDetailsComponent },
-    { path: 'favorites', component: FavoritesComponent },
+    { path: 'favoriteJobs', component: FavoritesComponent },
     { path: '', redirectTo: '/jobs', pathMatch: 'full' },
     { path: '**', redirectTo: '/jobs' }
 ];

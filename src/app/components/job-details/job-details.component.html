@@ -13,7 +13,7 @@
               <h5 class="card-title">{{job.companyName}} - {{job.title}}</h5>
             </div>
             <span class="badge text-bg-dark ms-4 me-2" *ngFor="let type of job.types">{{type}}</span>
-            <span class="badge text-bg-dark" *ngFor="let industry of job.industries">{{industry}}</span>
+            <span class="badge text-bg-dark" *ngFor="let industry of job.industries" [innerHtml]="industry"></span>
           </div>
         </div>
         <div class="row mt-2">
